@@ -1,14 +1,19 @@
 import csv
 
-def load_data(filename):
-    mylist = []
-    with open(filename) as info:
-        info_data = csv.reader(info, delimiter=',')
-        next(info_data) 
-        for row in info_data:
-            mylist.append(row)
-        return mylist
+data_file = 'data-juBjDEKS03Bds6wun-5kM.csv'
+
+with open(data_file,'r') as file:
+    csvreader = csv.reader(file)
     
-newlist = load_data('data-juBjDEKS03Bds6wun-5kM.csv')
-for row in newlist:
-    print(row)
+    for row in csvreader:
+        country = row [1]
+        currency = row [6]
+        fullname = row [0]
+        names = fullname.split(' ')
+
+        
+        if (len(names)==2):
+            surname = names[1]
+            print(surname, country, currency)
+        else:
+            print(country,currency)
