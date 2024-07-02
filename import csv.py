@@ -24,7 +24,6 @@ fields = ['country', 'region','secret', 'company', 'region1', 'currency', 'fulln
 
 def write_csv(file_name):
     print("I'll write file named: ", file_name)
-
     with open(file_name, 'w') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fields)
         writer.writeheader()
@@ -36,4 +35,5 @@ for data_file in data_files:
 for country in countries:
     write_csv(country)
     
+# print(countries)
 
