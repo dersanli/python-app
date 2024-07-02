@@ -20,12 +20,14 @@ def read_csv(file_name):
             if not country in countries:
                 countries.append(country)
 
+fields = ['country', 'region','secret', 'company', 'region1', 'currency', 'fullname']
+
 def write_csv(file_name):
     print("I'll write file named: ", file_name)
-    # writing to csv file
+
     with open(file_name, 'w') as csvfile:
-        # creating a csv dict writer object
-        writer = csv.DictWriter(csvfile)
+        writer = csv.DictWriter(csvfile, fieldnames=fields)
+        writer.writeheader()
 
 
 for data_file in data_files:
@@ -34,5 +36,4 @@ for data_file in data_files:
 for country in countries:
     write_csv(country)
     
-# print(countries)
 
